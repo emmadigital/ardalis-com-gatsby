@@ -5,6 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: 'Ardalis is Steve Smith - ardalis',
+    siteUrl: 'https://ardalis.com',
     author:'Steve Smith',
     description:
       'Steve is an experienced software architect and trainer, focusing currently on ASP.NET Core and Domain-Driven Design.',
@@ -25,6 +26,7 @@ module.exports = {
     `gatsby-plugin-twitter`,
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -54,6 +56,14 @@ module.exports = {
       options: {
           endpoint: 'https://ardalis.us13.list-manage.com/subscribe/post?u=ddf5f72371bc4c837a6667f27&amp;id=40af84bfa3', 
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.ardalis.com',
+        sitemap: 'https://www.ardalis.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
     },
     `gatsby-plugin-material-ui`,
     'disqus-react',
